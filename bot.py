@@ -40,15 +40,20 @@ def latest_quake():
 
 def handle_commands():
     updates = get_updates()
+
     for u in updates.get("result", []):
-        text = u["message"].get("text", "")
-        update_id = u["update_id"]
+        message = u.get("message")
+        if not message:
+            continue
+
+        text = message.get("text", "")
 
         if text == "/help":
             send(
                 "🤖 Quake Bot Commands:\n"
                 "/status – bot status\n"
                 "/latest – latest Mindanao quake\n"
+                "/prepare – preparedness checklist\n"
                 "/help – show this message"
             )
 
@@ -60,15 +65,16 @@ def handle_commands():
 
         elif text == "/latest":
             send(latest_quake())
-elif text == "/prepare":
-    send(
-        "🧰 EARTHQUAKE PREPAREDNESS CHECKLIST\n"
-        "1️⃣ Secure shelves & heavy items\n"
-        "2️⃣ Prepare a go-bag (water, flashlight, meds)\n"
-        "3️⃣ Identify safe spots in each room\n"
-        "4️⃣ Save emergency contacts\n"
-        "5️⃣ During quake: DROP, COVER, HOLD"
-    )
+
+        elif text == "/prepare":
+            send(
+                "🧰 EARTHQUAKE PREPAREDNESS CHECKLIST\n"
+                "1️⃣ Secure shelves & heavy items\n"
+                "2️⃣ Prepare a go-bag (water, flashlight, meds)\n"
+                "3️⃣ Identify safe spots in each room\n"
+                "4️⃣ Save emergency contacts\n"
+                "5️⃣ During quake: DROP, COVER, HOLD"
+            )
 
         # mark update as processed
        
