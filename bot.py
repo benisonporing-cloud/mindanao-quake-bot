@@ -60,6 +60,15 @@ def handle_commands():
 
         elif text == "/latest":
             send(latest_quake())
+elif text == "/prepare":
+    send(
+        "🧰 EARTHQUAKE PREPAREDNESS CHECKLIST\n"
+        "1️⃣ Secure shelves & heavy items\n"
+        "2️⃣ Prepare a go-bag (water, flashlight, meds)\n"
+        "3️⃣ Identify safe spots in each room\n"
+        "4️⃣ Save emergency contacts\n"
+        "5️⃣ During quake: DROP, COVER, HOLD"
+    )
 
         # mark update as processed
        
