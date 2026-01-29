@@ -61,8 +61,7 @@ def handle_commands():
             send(latest_quake())
 
         # mark update as processed
-        get_updates(update_id + 1)
-
+       
 def check_quakes():
     url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
     data = requests.get(url).json()["features"]
