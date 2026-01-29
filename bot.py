@@ -89,3 +89,4 @@ if __name__ == "__main__":
     handle_commands()
     check_quakes()
 Add Telegram commands
+Fix Telegram command handling
